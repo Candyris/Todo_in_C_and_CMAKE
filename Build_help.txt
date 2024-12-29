@@ -1,0 +1,8 @@
+
+// For cmake to work you follow these steps
+// 1> make a folder named "build"(anything else will work but it is standardly named as "build")  
+// 2> type this [command] : "cmake .."
+// 3> type this [command] : "cmake -build ."
+// 4> type this [command] : "./Debug/todo.exe" (this will you find on by yourself) 😓😓
+
+// Lets automate this stuff
