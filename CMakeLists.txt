@@ -9,4 +9,16 @@ project(TODO)
 # now you need to mention what will be the executable name (a.exe, 1.c, game.c, app.c,...etc ) 
 # then the source file (main.c, draw.c,...etc)
 
-add_executable(todo src/main.c)
+add_executable(todo 
+    src/main.c 
+    src/File_Handle/fileManger.c
+    src/Todo/todo.c
+    src/Container/Container.c
+)
+
+# including the different directory for other source file
+target_include_directories(todo PUBLIC 
+    ${CMAKE_SOURCE_DIR}/src/File_Handle
+    ${CMAKE_SOURCE_DIR}/src/Container
+    ${CMAKE_SOURCE_DIR}/src/Todo
+)
