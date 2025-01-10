@@ -1,35 +1,42 @@
-#include "todo.h"
 #include <stdio.h>
+#include "todo.h"
+#include "../File_Handle/fileManger.h"
+#include "../Container/Container.h"
+Todo_t __todo;
+Todo_t *Todo_create()
+{
+    __todo.__taskListFilePath = Todo_AllProject(DEFAULT_RECORD_FILE_PATH);
+    __todo.__container = NULL;
+    __todo.__newTask = NULL;
+    return &__todo;
+}
+
+myContainer_t *Todo_AllProject(const char *file)
+{
+    myContainer_t *self = Container_create();
+    int tasks[MAX_TASK_NUMBERS] = {0};
+    int last;
+    char* contant_list = File_loadTask(file, tasks, &last);
+    for (int i = 0; i < last; i++)
+    {
+        Container_append(self, contant_list+ tasks[i]);
+    } 
+    return self;
+}
+
 myContainer_t *Todo_loadTask(const char *filePath)
 {
-    myContainer_t* list = Container_create();
-    FILE* file = fopen(filePath,"r");
-    if (!file)
+    myContainer_t *self = Container_create();
+    int tasks[MAX_TASK_NUMBERS] = {0};
+    int last;
+    char* contant_list = File_loadTask(filePath, tasks, &last);
+    for (int i = 0; i < last; i++)
     {
-        printf("[TODO_ERROR]: Failed to Open \"%s\" path!\n",filePath);
-        return NULL;
-    }
-    char ch;
-    int count = 0;
-    char buffer[MAX_TASK_LENGTH];
-    while ((ch = fgetc(file)) != EOF)
-    {
-        if (ch == '\n') 
-        {
-            buffer[++count] = '\0';
-            Container_append(list,buffer);
-            count= 0;
-            continue;
-        } 
-        buffer[count] = ch;
-        count++;
-    }
-    buffer[++count] = '\0';
-    Container_append(list,buffer);
-    return list;
+        Container_append(self, contant_list+ tasks[i]);
+    } 
+    return self;
 }
 
 void Todo_save()
 {
-    
 }

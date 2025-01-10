@@ -7,7 +7,7 @@
 struct tnode
 {
     char* task;
-    struct tode* next;
+    struct tnode* next;
 };
 
 typedef struct myContainer {
@@ -17,7 +17,7 @@ typedef struct myContainer {
 } myContainer_t;
 
 myContainer_t* Container_create();
-void Container_append(myContainer_t* list, const char* text);
+void Container_append(myContainer_t* list,  char* text);
 void Container_print(myContainer_t* list);
 // void Container_remove(myContainer_t* list, const char* text, int num);
 

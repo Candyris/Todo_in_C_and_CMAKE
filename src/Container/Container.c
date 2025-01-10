@@ -10,7 +10,7 @@ myContainer_t *Container_create()
     return myContainer;
 }
 
-void Container_append(myContainer_t *list, const char *text)
+void Container_append(myContainer_t *list, char *text)
 {
     struct tnode* new = (struct tnode*)malloc(sizeof(struct tnode)); // I think so this function is done !
     new->task = malloc(sizeof(char) * (strlen(text)+1)); // but malloc (strlen(text)+1) is also right char is size is 1
@@ -29,6 +29,7 @@ void Container_print(myContainer_t *list)
     {
         printf("%s->",it->task);
     }
+    printf("\n");
 }
 
 void Container_del()
