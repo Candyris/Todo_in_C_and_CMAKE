@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include "App/App.h"
-#include <windows.h>
 int main(int argc, char** argv)
 {
 
