@@ -1,12 +1,5 @@
 For cmake to work you follow these steps:
 
-in cmake make sure your cmake version higher or equal to this version
-code:
-	minimum_cmake_required(VERSION "here put the right version")
-like:
-	cmake_minimum_required(VERSION 3.16.2)
-
-
 1> make a folder named "build"(anything else it will work but it is standardly named as "build")  
 2> type this [command] : "cd build"
 3> type this [command] : "cmake .."

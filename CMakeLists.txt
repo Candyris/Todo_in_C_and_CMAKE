@@ -1,7 +1,7 @@
 # This file should name this to work like (CMakeLists.txt)
 
 # First we need mention the minimum support cmake version
-	cmake_minimum_required(VERSION 3.16.2)
+cmake_minimum_required(VERSION 3.16.2)
 
 # CMake required to must give a project name
 project(TODO)

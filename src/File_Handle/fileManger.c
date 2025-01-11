@@ -3,7 +3,7 @@
 
 static char __buffer[MAX_TASK_NUMBERS * MAX_TASK_LENGTH] = {0};
 
-char *File_loadTask(const char *filePath, int *newline,int* last)
+char *File_loadTask(const char *filePath, int *stringEndPostion,int* noEndPostion)
 {
     FILE *file = fopen(filePath, "r");
     if (!file)
@@ -20,7 +20,7 @@ char *File_loadTask(const char *filePath, int *newline,int* last)
         if (ch == '\n')
         {
             __buffer[count++] = '\0';
-            newline[mark] = count;
+            stringEndPostion[mark] = count;
             mark++;
             continue;
         }
@@ -28,8 +28,10 @@ char *File_loadTask(const char *filePath, int *newline,int* last)
         count++;
     }
     __buffer[count] = '\0';
-    newline[mark] = count;
-    *last = mark;
+    stringEndPostion[mark] = count;
+    *noEndPostion = mark;
+
+    fclose(file);
     return __buffer;
 }
 
