@@ -4,5 +4,5 @@ For cmake to work you follow these steps:
 2> type this [command] : "cd build"
 3> type this [command] : "cmake .."
 4> type this [command] : "cmake -build ."
-5> type this [command] : "./Debug/todo.exe" (this depend what you are using) 😓😓
+5> type this [command] : "./Debug/todo" (this depend what you are using) 😓😓
 
